@@ -21,10 +21,6 @@ const Body: React.FC<Props> = ({ messages, user, isTyping, leftBubbleStyle, righ
     const [typingUserAvatar, setTypingUserAvatar] = useState<string | undefined>();
 
     useEffect(() => {
-        el.current.scrollIntoView();
-    }, [messages, isTyping]);
-
-    useEffect(() => {
         setTypingUserAvatar(messages.find(message => message.user.id !== user.id)?.user.avatar);
     }, [messages, user]);
 
